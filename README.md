@@ -8,6 +8,7 @@ Static teaching notes for **Shanghai Maths Grade 3** and **Singapore Intensive P
 |------|---------|
 | `web/` | Static site (HTML, CSS, images) — this is what gets deployed |
 | `web/assets/css/` | Shared styles (`tokens`, `base`, `home`, `lesson`, …) |
+| `_unpublished/` | Archived pages not deployed (e.g. About Me) |
 | `Notes/` | Markdown source notes (not deployed) |
 | `Input/` | Original workbook photos (not deployed) |
 | `.ocr/` | OCR working files (not deployed) |
@@ -26,7 +27,32 @@ Open [http://localhost:3000](http://localhost:3000).
 
 No install step — `serve` is fetched on first run. Alternative: `python3 -m http.server 3000 --directory web`.
 
-## 2. Push to a private GitHub repo
+## 2. Preview and publish
+
+**Workflow:** edit → preview locally → publish when ready.
+
+```bash
+# 1. Preview on your machine
+npm run serve
+# open http://localhost:3000
+
+# 2. When satisfied, commit + push (deploys to GitHub Pages)
+npm run publish
+```
+
+`npm run publish` shows your changes, asks for a commit message, then pushes to `main`. GitHub Actions deploys `web/` to [huasclassroom.com](https://huasclassroom.com) in about a minute.
+
+### Unpublished content
+
+Pages removed from the live site are kept under `_unpublished/` (not deployed). To restore the About page:
+
+```bash
+npm run restore-about   # copies files back into web/
+npm run serve           # preview at /about.html
+npm run publish         # go live
+```
+
+## 3. Push to a private GitHub repo
 
 ```bash
 git init
@@ -38,7 +64,7 @@ git push -u origin main
 
 > **Note:** GitHub Pages on a **private** repo requires a paid GitHub plan (Pro or Organization). On the free tier, use a public repo or deploy elsewhere (AWS S3 + CloudFront, Google Cloud Storage, Cloudflare Pages, etc.).
 
-## 3. Deploy to GitHub Pages
+## 4. Deploy to GitHub Pages
 
 The `web/` folder is published as-is — no build step, no Node server.
 
@@ -67,7 +93,6 @@ Usually Pages was not enabled before the first workflow run. Fix:
 - `tokens.css` — colors, spacing, site URL variable
 - `base.css` — typography, top bar, footer
 - `home.css` — homepage layout
-- `about.css` — about page
 - `lesson.css` — all lesson/note pages
 - `lesson-s2.css` — Second Semester copper theme override
 
