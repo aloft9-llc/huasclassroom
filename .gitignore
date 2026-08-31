@@ -1,0 +1,10 @@
+.DS_Store
+*.zip
+
+# Source photos and OCR working files (not needed for the static site)
+Input/
+.ocr/
+.tmp/
+
+# Local tooling
+node_modules/

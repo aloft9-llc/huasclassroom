@@ -1,0 +1,15 @@
+/* Second Semester lesson theme (Shanghai Maths S2) */
+:root {
+  --teal: #c26a2d;
+  --teal-deep: #8a3f12;
+  --coral: #d4894a;
+  --sand: #f5ebe3;
+  --glow: rgba(194, 106, 45, 0.14);
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #f3e7df 0%, transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, #ffe8cc 0%, transparent 45%),
+    linear-gradient(180deg, #f7f0e8 0%, var(--paper) 35%, #f3eee8 100%);
+}

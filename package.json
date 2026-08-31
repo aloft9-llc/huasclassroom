@@ -1,0 +1,9 @@
+{
+  "name": "huasclassroom",
+  "private": true,
+  "description": "Hua's Classroom — static teaching notes for Grade 3 maths",
+  "scripts": {
+    "serve": "npx --yes serve web -l 3000",
+    "serve:8080": "npx --yes serve web -l 8080"
+  }
+}
