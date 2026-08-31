@@ -12,7 +12,11 @@ Static teaching notes for **Shanghai Maths Grade 3** and **Singapore Intensive P
 | `Input/` | Original workbook photos (not deployed) |
 | `.ocr/` | OCR working files (not deployed) |
 
-## 1. Run locally
+## 1. Run locally (optional)
+
+The site is **fully static** (HTML, CSS, images in `web/`). There is no server backend.
+
+`npm run serve` is only for previewing on your machine:
 
 ```bash
 npm run serve
@@ -36,13 +40,27 @@ git push -u origin main
 
 ## 3. Deploy to GitHub Pages
 
-1. In the repo: **Settings → Pages → Build and deployment**
-2. Source: **GitHub Actions**
-3. Push to `main` — the workflow in `.github/workflows/deploy.yml` publishes the `web/` folder.
+The `web/` folder is published as-is — no build step, no Node server.
+
+1. **Enable Pages first** (required before the first deploy):
+   - Repo → **Settings → Pages → Build and deployment**
+   - Source: **GitHub Actions**
+2. Push to `main`, or run **Actions → Deploy to GitHub Pages → Run workflow**
+3. The workflow in `.github/workflows/deploy.yml` uploads the `web/` folder.
+
+Live site: [https://huasclassroom.com](https://huasclassroom.com)
+
+### If you see “There isn't a GitHub Pages site here” (404)
+
+Usually Pages was not enabled before the first workflow run. Fix:
+
+1. **Settings → Pages** → set Source to **GitHub Actions**
+2. **Actions → Deploy to GitHub Pages → Run workflow**
+3. Wait ~1 minute, then open [https://huasclassroom.com](https://huasclassroom.com)
 
 ### Custom domain (`huasclassroom.com`)
 
-`web/CNAME` is already set. In **Settings → Pages → Custom domain**, enter `huasclassroom.com` and add the DNS records GitHub shows (typically `A` records to GitHub IPs, or a `CNAME` to `<user>.github.io`).
+`web/CNAME` is already set. In **Settings → Pages → Custom domain**, enter `huasclassroom.com` and add the DNS records GitHub shows (typically `A` records to GitHub IPs, or a `CNAME` to `<user>.github.io`). Enable **Enforce HTTPS** once DNS verifies.
 
 ## CSS structure
 

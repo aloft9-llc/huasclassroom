@@ -53,7 +53,14 @@
       animation: drift 12s ease-in-out infinite;
     }
 
-    .orb-
+    .orb-a {
+      width: min(16vw, 88px);
+      height: min(16vw, 88px);
+      left: 8%;
+      top: 32%;
+      animation-delay: 0s;
+      background: rgba(126, 203, 255, 0.45);
+    }
 
     .orb-b {
       width: min(12vw, 72px);
@@ -161,15 +168,26 @@
       filter: drop-shadow(0 14px 22px rgba(18, 24, 32, 0.14));
     }
 
-    .hero-cover-medi
+    .hero-cover-media {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
 
-    .book-pick-sg .hero-cover-medi
+    .book-pick-sg .hero-cover-media {
+      border-radius: 3px;
+    }
 
     .hero-cover-spine {
       display: none;
     }
 
-    .book-pick-
+    .book-pick-body {
+      display: grid;
+      gap: 4px;
+      min-width: 0;
+    }
 
     .book-pick-kicker {
       margin: 0;
@@ -202,9 +220,26 @@
       gap: 8px;
     }
 
-    .book-pick .ct
+    .book-pick .cta {
+      margin-top: 2px;
+    }
 
-    .ct
+    .cta {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1.5px solid transparent;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      line-height: 1.2;
+      cursor: pointer;
+      background: transparent;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+    }
 
     .cta:hover { transform: translateY(-2px); }
 
@@ -455,7 +490,13 @@
       line-height: 1.4;
     }
 
-    .chapter-met
+    .chapter-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 8px;
+    }
 
     .chapter-meta .count {
       font-size: 0.8rem;
@@ -541,22 +582,6 @@
       white-space: nowrap;
     }
 
-    
-
-    
-
-    
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    
-      50% { transform: translateY(-14px); }
-    }
-
-    
-      to { transform: rotate(378deg); }
-    }
-
     @media (max-width: 820px) {
       .hero-books { grid-template-columns: 1fr; }
     }
@@ -575,7 +600,7 @@
       .book-pick .hero-cover { width: 78px; }
       .book-pick:hover .hero-cover-frame { transform: none; filter: none; }
       .hero { min-height: 0; align-items: center; }
-      .ct
+      .cta { padding: 7px 12px; font-size: 0.8rem; }
       .browse { width: calc(100% - 32px); }
       .semester.is-active { grid-template-columns: 1fr; }
       .chapter-summary {
@@ -583,7 +608,11 @@
         gap: 10px;
         min-height: 0;
       }
-      .chapter-met
+      .chapter-meta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+      }
       .lesson {
         grid-template-columns: 48px 1fr;
         grid-template-rows: auto auto;
